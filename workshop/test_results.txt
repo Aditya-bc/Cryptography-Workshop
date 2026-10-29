@@ -1,0 +1,93 @@
+========================================================================
+ SECURE EXAMINATION-PAPER EXCHANGE - SIMULATION
+========================================================================
+
+[SETUP 1] Generating RSA-4096 key pairs (this takes a few seconds)...
+  sender    private: sender\keys\sender_private.pem  (encrypted PEM, chmod 600)
+            public : sender\keys\sender_public.pem
+  recipient private: recipient\keys\recipient_private.pem  (encrypted PEM, chmod 600)
+            public : recipient\keys\recipient_public.pem
+  attacker  private: attacker\keys\attacker_private.pem  (encrypted PEM, chmod 600)
+            public : attacker\keys\attacker_public.pem
+  Public keys exchanged via 'trusted channel' (copied into trusted_keys/).
+
+------------------------------------------------------------------------
+TEST 1: Authorised recipient recovers the original file
+------------------------------------------------------------------------
+  Sender encrypted + signed -> sender\outbox\exam_paper.pkg.json (2930 bytes)
+  Package travelled: sender/outbox -> untrusted_channel -> recipient/inbox
+  Plaintext marker visible inside package? False
+  -> PASS: decrypted file identical to original (722 bytes)
+
+------------------------------------------------------------------------
+TEST 2: Attacker modifies ciphertext / metadata / signature (and more)
+------------------------------------------------------------------------
+  Tampered ciphertext               -> SignatureVerificationError: Signature INVALID: package was modified or was not signed by the trusted sender
+  -> PASS: rejected, no plaintext written
+
+  Tampered metadata (file_name)     -> SignatureVerificationError: Signature INVALID: package was modified or was not signed by the trusted sender
+  -> PASS: rejected, no plaintext written
+
+  Tampered signature                -> SignatureVerificationError: Signature INVALID: package was modified or was not signed by the trusted sender
+  -> PASS: rejected, no plaintext written
+
+  Tampered GCM tag                  -> SignatureVerificationError: Signature INVALID: package was modified or was not signed by the trusted sender
+  -> PASS: rejected, no plaintext written
+
+  Tampered nonce                    -> SignatureVerificationError: Signature INVALID: package was modified or was not signed by the trusted sender
+  -> PASS: rejected, no plaintext written
+
+  Tampered encrypted session key    -> SignatureVerificationError: Signature INVALID: package was modified or was not signed by the trusted sender
+  -> PASS: rejected, no plaintext written
+
+  Replacement package signed by attacker -> SignatureVerificationError: Signature INVALID: package was modified or was not signed by the trusted sender
+  -> PASS: forged package rejected (not signed by trusted sender)
+
+  Truncated/garbage file -> PackageFormatError: File is not a valid package (bad JSON)
+  -> PASS: malformed package rejected
+
+  Defence-in-depth (valid signature, bad ciphertext) -> IntegrityError: GCM authentication tag INVALID: ciphertext/metadata altered
+  -> PASS: GCM tag caught the change even though the signature was valid
+
+------------------------------------------------------------------------
+TEST 3: Recipient decrypts with an INCORRECT private key
+------------------------------------------------------------------------
+  Attacker's private key -> SessionKeyError: Session key cannot be recovered: wrong recipient private key
+  -> PASS: OAEP unwrap failed, no plaintext released
+
+------------------------------------------------------------------------
+TEST 4: Signature verification with an INCORRECT sender public key
+------------------------------------------------------------------------
+  Verifying with attacker's public key -> SignatureVerificationError: Signature INVALID: package was modified or was not signed by the trusted sender
+  -> PASS: signature check failed, nothing decrypted
+
+------------------------------------------------------------------------
+TEST 5: Same file encrypted twice -> different packages
+------------------------------------------------------------------------
+  encrypted_session_key  differs: True
+  nonce                  differs: True
+  ciphertext             differs: True
+  tag                    differs: True
+  signature              differs: True
+  package_id             differs: True
+  Both packages decrypt to the identical original: True
+  -> PASS: every random component differs; both decrypt correctly
+
+========================================================================
+ SUMMARY
+========================================================================
+  [PASS] T1 recipient recovers file
+  [PASS] T2 tamper ciphertext
+  [PASS] T2 tamper metadata (file_name)
+  [PASS] T2 tamper signature
+  [PASS] T2 tamper GCM tag
+  [PASS] T2 tamper nonce
+  [PASS] T2 tamper encrypted session key
+  [PASS] T2 replacement/forgery
+  [PASS] T2 malformed package
+  [PASS] T2 GCM tag as 2nd layer
+  [PASS] T3 wrong private key
+  [PASS] T4 wrong sender public key
+  [PASS] T5 fresh randomness each time
+
+  13/13 checks passed

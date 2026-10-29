@@ -1,0 +1,12 @@
+CONFIDENTIAL - END-SEMESTER EXAMINATION
+Course : CS301 Information Security      Duration: 3 hours      Marks: 100
+Paper code (SECRET): CS301-ES-2026-MASTER-7F3A
+
+Q1. (10) Explain the CIA triad with one real-world example for each property.
+Q2. (15) Compare AES-GCM and AES-CBC+HMAC. Why is nonce reuse fatal in GCM?
+Q3. (15) Describe RSA-OAEP. Why is textbook RSA unsafe for key transport?
+Q4. (20) Explain RSA-PSS and why signatures are applied to the ENTIRE package.
+Q5. (20) Design a hybrid encryption scheme and discuss its failure modes.
+Q6. (20) Discuss key distribution: why must public keys arrive via a trusted channel?
+
+Answer key hint (SECRET): Q3 -> mention Bleichenbacher padding-oracle attacks.

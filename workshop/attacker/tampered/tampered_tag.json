@@ -1,0 +1,22 @@
+{
+  "header": {
+    "format": "EXAM-PKG",
+    "version": 1,
+    "package_id": "3540c8ea-2fe1-4329-ba5a-e777c5d0b6cd",
+    "created_utc": "2026-10-29T04:07:04+00:00",
+    "sender_id": "faculty.alice",
+    "recipient_id": "coordinator.bob",
+    "file_name": "exam_paper.txt",
+    "plaintext_size": 722,
+    "algorithms": {
+      "symmetric": "AES-256-GCM",
+      "key_wrap": "RSA-OAEP-SHA256",
+      "signature": "RSA-PSS-SHA256"
+    }
+  },
+  "encrypted_session_key": "WYQ742F7eIQj7huc14YksxtYMnwjE1nrp4AxSk3ydU6N3Zz9Bd0cRuGwdnCtqN/iqL2dXlcsp51858MyeXKAKB06m43+v0rRrArUeXyD/sfcKTSdwW53bzMAzCM3r+D10emNq7iMCwKcjoud/GPtU1FWInelmfLA6sLSLCLK21KbHSxWmazvFR3Bxmu9BbFzficl72lct/RplAUZQhwu3vYX1648K5xfXAQmf8Q3p+E2x+BEenum/Ye20PtGD47pFfQx3lCwGEpAMjeKVEyLr1YOs2vvY4ulk4alHcK6bChI0EnkxzDKiPlp8RjLSUIAlwStWtXPrCrCdC6KQRXkuhv2nx2ETX5XHPQH8tuEti88BhlVj5vCEPt56ANj3FNjoG97wYOPfHfiU3oHWNxRzBbVmOvBsDNk6KI4Ha2S/bWlhhAtIcrXYk+gl1OZvYT/A8AS7SsFIxWeYAX2CCKNMmgjfZa7ctHUYZTwKjKSYBmghStKrYaSc+88lneMsomIE5h+QnG6txFIryBZmm7f7Qv4oNupaANokJNnZ72bZdpzA0QHpD4x+S6G04WdYPb4y3wAxxI7SZX61Tlu7si3y1cI6KHkBNCPD/aiKcern9OOW54nW3NzQXvfvhFm3MTrEmVEQWnVdAfJBtf2OdAVzDUQgIjLQ8UVF7lSeawIvsE=",
+  "nonce": "PEJ6MHEXXMidHSCX",
+  "ciphertext": "yMNuXJUbPddSxCJLMz8vyHP0nQBb2x1OoSIPalMAyEJii1OpG5pqH6eg8W0stXF9Y5AftfqsUk8zXrMA6rAkAbmgBFNuRhvutyQSEDejEZWnkzVfYfjKEhvAAPAMFlTyFck0nBTGYhpEj5VZIdmH8lsuJnxgcz8bnxy0RSR22CSKHBWqYJwssirhuauWFpTPJtKIhs8WmN+g1thpkIOuP0VpjJ+Hm+0zX8e3SdSIAjuZjLj9F3fyIpO0U3v6vbL7ZSI+pOdjSovl2yTbcy3J+nb1VPCv2p4Bvt0mCNyfR3Z5ZIxrVCKsXvsunW10SmE9IzBbqJc3AIhMO6gAlbAxIzTM8cHTQZoKd9RXKpObs0/KZidUtrN5TjpUSCybKr5lihUFUTuI9f7wEaTP+YvxyTn+4kGaTuf8dS6+DbbUmu4k8ld6Zr4ckoBd6pYMRQj3g/JCCufJ3xlDjUBgw3BIvqtpwUZvrsQVEgaQ6iyqX7xoMl0fBeMqdwsGY1jnvkoDUbhhuV+THe9nENwGtNK5CoAVew7xriU2h8P80Ysnlmt920Di1NkXh7ClScoRJ+WpDj6YOuVfZhOW0zRml025oiVG7jeu+pgIKRkJH/ayzv1RsrqBDj1Qr/lG6jmPsG4mysoccqeSb7PBbHzALFYliPk+1Ai0bzOV3ltnTVqaggWEQMDt1M0speM3bU1ypl8TJYHxismDWJ6uQQgDJH3nlJiFqgAFiqaeXAib9X1hZOohynRsI4wz8PMWO80uPtZMVVx53smneYiX6kajSZsb448mnk8qnYvLZ5a0QwYdgjgb2M/dc9/SJYjPAE/uVkx2hFMsJrLhQPwyX3BJf0ueqn3AMk7KruWkH9Nu6Z5OLkOqdar9/Q8NxNqWhhDyqjEHWWjiEd6qM2KX71VhoLGAs+4xdbOypM/Olh4ih0qDeuV1J8ojTIDSLHhQRkNtYUWWAYg=",
+  "tag": "w4TiwRbwz/jfXD++pwZQkA==",
+  "signature": "rxBb444Zg6b7Z48Z22/Rk0hl83u3/ko+RhsWL5yhczPoIw3nq66A44QnPyMA5jT1W4cIssgim+do41li1J3uWFpBSaI9gvs5QBKZaQwMWXZPifXSuMuVqEem3/CFipWCs+wVgEd7NJ1BUf+HaPGlxLSlADVptc5gaJJD4sRBTZpuOv5b7IPh57m3Yiabktn5hDAF9ByhQgsQQbfciIKdkukO6ExYqWFocYzsYmAkJVRbAtuvNrpYntWXLh69vJXOuVrWGorA6xeL4MBuc09whkF+cEVVnf+d0u/dpmH3ybXKqYM5+hvp2+1cIvfpDkbAwr8B3MLoa1UaEyLajBhyk3nX252VPzWoB9wyo9FjqCVkgTk0fhUb5nI9sxSOqL8IrbVWc9LaeKiLqt2MqZ6Gayl9IDC8VZlk2apLY0dh6NJ962zQHGesBjASDZFV75i+Gub1jJt36BtgKBxEYcppIP1JiTMdCp6B9mCScrWwpVDGF9qdMnt+S2FVSvS2uzVWInU5o567gx4+CnbajZ89/bgAnvu3nvc9x3OcGK7JtXmx/X6HNHeFFEHDB9SUbwoEIhEHpMo0VnvL7pnpifwe1SlGDzROxB0q1uXU1hwpbUaoKaW7SdMqKgiOZRMG/eYftJfP4NJVIC6e3F2cxziXzDYEj89vIkCbayy/dFD39vU="
+}
